@@ -1,0 +1,91 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 80%; /* Aumenta el ancho máximo del contenedor */
+    margin: 50px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%; /* Asegura que la tabla use todo el ancho del contenedor */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+td {
+    background-color: #f2f2f2; /* Color de fondo para las celdas */
+}
+
+tr:nth-child(even) td {
+    background-color: #e9e9e9; /* Color alternativo para las filas */
+}
+
+tr:hover td {
+    background-color: #ddd; /* Color de fondo al pasar el mouse */
+}
+
+/* Estilos para los botones */
+.btn {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add {
+    background-color: #7c03c7; /* Verde para agregar */
+    color: white;
+}
+
+.edit {
+    background-color: #ffffff; /* Azul para editar */
+    color: rgb(0, 0, 0);
+    border: 1px solid black;
+    
+}
+
+.delete {
+    background-color: #000000; /* Rojo para borrar */
+    color: rgb(255, 255, 255);
+}
+
+.btn:hover {
+    opacity: 0.4;
+    transition: 0.2s; /* Efecto de hover */
+}
+
+/* Estilos adicionales para mejorar la apariencia */
+@media (max-width: 600px) {
+    th, td {
+        font-size: 14px; /* Reduce el tamaño de fuente en pantallas pequeñas */
+        white-space: normal; /* Permite el ajuste de línea en dispositivos pequeños */
+    }
+}

@@ -1,0 +1,81 @@
+<div class="container">
+    <h1>Solicitudes de Demostración</h1>
+    <button class="btn add" (click)="mostrarFormulario = true">Agregar Solicitud</button>
+
+    @if (mostrarFormulario) {
+        <div class="formulario">
+            <h2>Agregar Nueva Solicitud</h2>
+        <form (ngSubmit)="agregarSolicitud()">
+            <label>
+                Nombre de la Compañía:
+                <input type="text" [(ngModel)]="nuevaSolicitud.company_name" name="company_name" required>
+            </label>
+            <label>
+                Correo Electrónico:
+                <input type="email" [(ngModel)]="nuevaSolicitud.email" name="email" required>
+            </label>
+            <label>
+                Número Telefónico:
+                <input type="text" [(ngModel)]="nuevaSolicitud.phone_number" name="phone_number" required>
+            </label>
+            <label>
+                Mensaje:
+                <textarea name="message" [(ngModel)]="nuevaSolicitud.message"></textarea>
+            </label>
+            <label>
+                Nombre de Usuario:
+                <textarea name="message" [(ngModel)]="nuevaSolicitud.username"></textarea>
+            </label>
+            <label>
+                Origen:
+                <textarea name="message" [(ngModel)]="nuevaSolicitud.origin"></textarea>
+            </label>
+            <button type="submit" class="btn submit">Agregar</button>
+            <button type="button" class="btn cancel" (click)="mostrarFormulario = false">Cancelar</button>
+        </form>
+        </div>
+    }
+
+    <table>
+        <thead>
+            <tr>
+                <th>Llamada Realizada</th>
+                <th>Nombre de la Compañía</th>
+                <th>Demostración Entregada</th>
+                <th>Correo Electrónico</th>
+                <th>Correo Enviado</th>
+                <th>Mensaje</th>
+                <th>Número Telefónico</th>
+                <th>Visita Realizada</th>
+                <th>Fecha de Solicitud</th>
+                <th>Nombre de Usuario</th>
+                <th>Origen</th>
+                <th>Acciones</th> 
+                <!-- Columna para botones -->
+            </tr>
+        </thead>
+        <tbody>
+ 
+            @for (solicitud of solicitudes; track solicitud.id) {
+                <tr>
+                    <td>{{ solicitud.call_made }}</td>
+                <td>{{ solicitud.company_name }}</td>
+                <td>{{ solicitud.demo_provided }}</td>
+                <td>{{ solicitud.email }}</td>
+                <td>{{ solicitud.email_sent }}</td>
+                <td>{{ solicitud.message }}</td>
+                <td>{{ solicitud.phone_number }}</td>
+                <td>{{ solicitud.public_visit }}</td>
+                <td>{{ solicitud.request_date }}</td>
+                <td>{{ solicitud.username }}</td>
+                <td>{{ solicitud.origin }}</td>
+                <td>
+                    <button class="btn edit" (click)="editarSolicitud(solicitud.id)">Editar</button>
+                    <button class="btn delete" (click)="borrarSolicitud(solicitud.id)">Borrar</button>
+                </td>
+                </tr> 
+            }       
+            <!-- Aquí puedes agregar más filas según sea necesario -->
+        </tbody>
+    </table>
+</div>
