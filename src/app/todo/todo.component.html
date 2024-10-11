@@ -1,0 +1,21 @@
+<div>
+    <h2>ToDo List</h2>
+    <form (ngSubmit)="isEditing ? updateTodo() : addTodo()">
+      <input type="text" placeholder="Title" [(ngModel)]="currentTodo.title" name="title" required />
+      <input type="text" placeholder="Description" [(ngModel)]="currentTodo.description" name="description" required />
+      <button type="submit">{{ isEditing ? 'Update' : 'Add' }} Task</button>
+      <button *ngIf="isEditing" type="button" (click)="isEditing = false; editingTodo = null">Cancel</button>
+    </form>
+  
+    <ul>
+      <li *ngFor="let todo of todos">
+        <h3>{{ todo.title }}</h3>
+        <p>{{ todo.description }}</p>
+        <div class="btn-flex">
+            <button (click)="editTodo(todo)">Edit</button>
+            <button (click)="deleteTodo(todo.id)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
